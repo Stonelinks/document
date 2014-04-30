@@ -1,0 +1,18 @@
+{
+  "name": "document",
+  "scripts": {
+    "postinstall": "bower install"
+  },
+  "author": "Lucas Doyle <lucas.p.doyle@gmail.com>",
+  "dependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-connect": "^0.7.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-exec": "^0.4.5",
+    "grunt-inline": "^0.2.7",
+    "grunt-markdown": "^0.5.0",
+    "load-grunt-tasks": "^0.4.0"
+  },
+  "license": "MIT"
+}
