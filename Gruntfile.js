@@ -2,13 +2,16 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
+
+    file: 'okinawa',
+
     inline: {
       options: {
         tag: '',
         cssmin: true
       },
       all: {
-        src: 'document.html'
+        src: '<%= file %>.html'
       }
     },
 
@@ -20,7 +23,7 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            src: '*.md',
+            src: '<%= file %>.md',
             dest: '.',
             ext: '.html'
           }
@@ -29,7 +32,7 @@ module.exports = function(grunt) {
     },
 
     exec: {
-      wkhtmltopdf: 'wkhtmltopdf document.html document.pdf'
+      wkhtmltopdf: 'wkhtmltopdf <%= file %>.html <%= file %>.pdf'
     },
 
     watch: {
@@ -56,7 +59,7 @@ module.exports = function(grunt) {
 
       livereload: {
         options: {
-          open: 'http://localhost:<%= connect.options.port %>/document.html',
+          open: 'http://localhost:<%= connect.options.port %>/<%= file %>.html',
           base: ['.']
         }
       }
@@ -70,6 +73,7 @@ module.exports = function(grunt) {
     'inline',
     'exec:wkhtmltopdf'
   ]);
+
   grunt.registerTask('default', [
     'build',
     'connect:livereload',
